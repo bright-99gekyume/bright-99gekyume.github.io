@@ -210,20 +210,41 @@ button:focus-visible {
   padding-block: var(--space-xl);
 }
 
-/* Portrait photo — rounded, with an offset accent frame behind it */
+/* Portrait photo — rounded, with an offset accent frame behind it.
+   The wrapper provides perspective so the child can tilt in 3D. */
 .hero-photo {
   position: relative;
   width: min(280px, 70%);
   align-self: center;          /* centered when stacked on mobile */
+  perspective: 900px;          /* enables the 3D tilt effect below */
 }
 
 .hero-photo img {
   width: 100%;
-  aspect-ratio: 4 / 5;         /* consistent crop at any size */
+  aspect-ratio: 3 / 4;         /* matches the photo exactly — whole portrait fits, no crop */
   object-fit: cover;
   border-radius: var(--radius);
   border: 2px solid var(--color-accent);
   box-shadow: var(--shadow);
+  /* Gentle 3D floating animation (defined in the keyframes below) */
+  animation: photo-float 6s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* On hover the photo tilts toward the viewer and glows */
+.hero-photo:hover img {
+  animation-play-state: paused;
+  transform: rotateY(-8deg) rotateX(4deg) translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(100, 255, 218, 0.35);
+}
+
+/* Continuous subtle 3D sway: small Y/X rotations + a slow bob */
+@keyframes photo-float {
+  0%, 100% { transform: rotateY(0deg)  rotateX(0deg)  translateY(0); }
+  25%      { transform: rotateY(4deg)  rotateX(-2deg) translateY(-6px); }
+  50%      { transform: rotateY(0deg)  rotateX(0deg)  translateY(-10px); }
+  75%      { transform: rotateY(-4deg) rotateX(2deg)  translateY(-6px); }
 }
 
 /* Decorative offset outline behind the photo */
@@ -384,6 +405,7 @@ button:focus-visible {
 .projects-grid {
   display: grid;
   gap: var(--space-lg);
+  perspective: 1200px;         /* lets the cards tilt in 3D on hover */
 }
 
 .project-card {
@@ -395,9 +417,9 @@ button:focus-visible {
               border-color var(--transition);
 }
 
-/* Hover: lift the card, glow the border, deepen the shadow */
+/* Hover: 3D tilt + lift, glow the border, deepen the shadow */
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: rotateX(3deg) rotateY(-3deg) translateY(-8px);
   box-shadow: var(--shadow);
   border-color: var(--color-accent);
 }
@@ -548,6 +570,20 @@ button:focus-visible {
   text-align: center;
   color: var(--color-text-muted);
   font-size: 0.85rem;
+}
+
+/* ==============================================================
+   12b. REDUCED MOTION — respect users who turn animations off
+   ============================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo img {
+    animation: none;
+  }
+
+  .hero-photo:hover img,
+  .project-card:hover {
+    transform: none;
+  }
 }
 
 /* ==============================================================
