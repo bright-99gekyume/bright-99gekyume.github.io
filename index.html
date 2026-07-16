@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META & PAGE SETUP
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Bright Nyarko (Gekyume) — Computer Network Management student and builder of real-world software projects." />
+  <title>Bright Nyarko — Gekyume | Portfolio</title>
+
+  <!-- Google Fonts: 'Space Grotesk' for headings, 'Inter' for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ============================================================
+       NAVBAR (sticky)
+       - Contains the brand/logo, desktop links, and the hamburger
+         button that toggles the menu on mobile.
+       ============================================================ -->
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <!-- Brand / logo — links back to the top of the page -->
+      <a href="#hero" class="brand">Gekyume<span class="brand-dot">.</span></a>
+
+      <!-- Hamburger button — only visible on small screens.
+           aria-expanded is flipped by the tiny JS at the bottom. -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <!-- Navigation links -->
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO SECTION
+         - Name, title, tagline, and two call-to-action buttons.
+         ============================================================ -->
+    <section id="hero" class="hero container">
+      <!-- Text column -->
+      <div class="hero-content">
+        <p class="hero-eyebrow">Hi, I'm</p>
+        <h1 class="hero-name">Bright Nyarko <span class="hero-alias">// "Gekyume"</span></h1>
+        <p class="hero-title">Computer Network Management student (HND, Level 300) — Koforidua Technical University</p>
+        <p class="hero-tagline">"Networking student who builds — from farm apps to AI assistants"</p>
+
+        <!-- Call-to-action buttons -->
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--ghost">Contact Me</a>
+        </div>
+      </div>
+
+      <!-- Portrait photo with accent frame -->
+      <div class="hero-photo">
+        <img src="images/profile.jpg" alt="Portrait of Bright Nyarko" />
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+         - Short bio plus a "What I'm learning" list.
+         ============================================================ -->
+    <section id="about" class="section container">
+      <h2 class="section-title"><span class="section-number">01.</span> About</h2>
+
+      <div class="about-grid">
+        <!-- Bio text -->
+        <div class="about-bio">
+          <p>
+            I'm a Level 300 HND student in Computer Network Management at Koforidua
+            Technical University, where I spend my days learning how networks and
+            systems are designed, secured, and kept running.
+          </p>
+          <p>
+            Outside the classroom, I put that thinking into practice by building real
+            software — from a farm management app used by non-technical poultry farmers
+            to a multi-agent AI assistant dashboard. I love working where infrastructure
+            meets product: tools that are reliable underneath and simple on the surface.
+          </p>
+        </div>
+
+        <!-- "What I'm learning" side card -->
+        <aside class="about-learning" aria-label="What I'm learning">
+          <h3 class="about-learning-title">What I'm learning</h3>
+          <ul class="learning-list">
+            <li>Networking (routing, switching, protocols)</li>
+            <li>System administration (Windows &amp; Linux)</li>
+            <li>Network security fundamentals</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS SECTION
+         - Card grid; each card has an image placeholder, title,
+           description, and tech/skill tags.
+         ============================================================ -->
+    <section id="projects" class="section container">
+      <h2 class="section-title"><span class="section-number">02.</span> Projects</h2>
+
+      <div class="projects-grid">
+        <!-- ---- Project card: FarmNest ---- -->
+        <article class="project-card">
+          <!-- Real screenshot of the FarmNest dashboard -->
+          <img
+            class="project-image"
+            src="images/farmnest.png"
+            alt="FarmNest dashboard showing flock statistics, farm intelligence score, and production forecasts" />
+
+          <div class="project-body">
+            <h3 class="project-title">FarmNest</h3>
+            <p class="project-description">
+              A poultry farm management app that streamlines record-keeping and daily
+              operations for small farms — feed logs, flock records, and expenses in one
+              place, with a clean, accessible UI designed for non-technical users.
+            </p>
+            <!-- Tech / skills used -->
+            <ul class="project-tags" aria-label="Technologies used in FarmNest">
+              <li>Next.js</li>
+              <li>Supabase</li>
+              <li>UI/UX Design</li>
+              <li>Accessibility</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- ---- Project card: Jarvis ---- -->
+        <article class="project-card">
+          <!-- Real screenshot of the Gekyume/Jarvis command deck -->
+          <img
+            class="project-image"
+            src="images/jarvis.png"
+            alt="Jarvis personal AI command deck showing revenue, inbox, content queue, and agent panels" />
+
+          <div class="project-body">
+            <h3 class="project-title">Jarvis</h3>
+            <p class="project-description">
+              A personal AI assistant dashboard with voice interaction, browser
+              automation, and Gmail integration — built on a multi-agent architecture
+              where specialized agents handle tasks and report back to a central HUD.
+            </p>
+            <ul class="project-tags" aria-label="Technologies used in Jarvis">
+              <li>Multi-agent AI</li>
+              <li>Voice Interaction</li>
+              <li>Browser Automation</li>
+              <li>Gmail API</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS SECTION
+         - Two groups of badge/pill tags.
+         ============================================================ -->
+    <section id="skills" class="section container">
+      <h2 class="section-title"><span class="section-number">03.</span> Skills</h2>
+
+      <div class="skills-grid">
+        <!-- Group 1: Networking & Systems -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Networking &amp; Systems</h3>
+          <ul class="skill-pills" aria-label="Networking and systems skills">
+            <li>TCP/IP</li>
+            <li>Routing &amp; Switching</li>
+            <li>Windows Server</li>
+            <li>Linux Basics</li>
+            <li>Network Security</li>
+            <li>System Administration</li>
+            <li>Troubleshooting</li>
+          </ul>
+        </div>
+
+        <!-- Group 2: Development & Design -->
+        <div class="skill-group">
+          <h3 class="skill-group-title">Development &amp; Design</h3>
+          <ul class="skill-pills" aria-label="Development and design skills">
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript</li>
+            <li>Next.js</li>
+            <li>Flutter</li>
+            <li>Supabase</li>
+            <li>UI/UX Design</li>
+            <li>AI Tooling</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EDUCATION SECTION
+         ============================================================ -->
+    <section id="education" class="section container">
+      <h2 class="section-title"><span class="section-number">04.</span> Education</h2>
+
+      <div class="education-card">
+        <h3 class="education-school">Koforidua Technical University</h3>
+        <p class="education-degree">HND, Computer Network Management — Level 300</p>
+        <p class="education-detail">
+          Coursework in networking, systems administration, and network security,
+          combined with hands-on lab work and independent software projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+         - Email, LinkedIn, GitHub. URLs are placeholders to swap.
+         ============================================================ -->
+    <section id="contact" class="section container">
+      <h2 class="section-title"><span class="section-number">05.</span> Contact</h2>
+
+      <p class="contact-lead">
+        I'm open to internships, collaborations, and interesting projects.
+        The fastest way to reach me is email — or find me on the platforms below.
+      </p>
+
+      <ul class="contact-links">
+        <li><a class="contact-link" href="mailto:brightdossantos99@gmail.com">✉ Email</a></li>
+        <li><a class="contact-link" href="tel:+233274277240">☎ 027 427 7240</a></li>
+        <li><a class="contact-link" href="https://wa.me/233274277240" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a class="contact-link" href="https://www.linkedin.com/in/bright-nyarko-330522237" target="_blank" rel="noopener noreferrer">in LinkedIn</a></li>
+        <li><a class="contact-link" href="https://github.com/bright-99gekyume" target="_blank" rel="noopener noreferrer">&lt;/&gt; GitHub</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Bright Nyarko — "Gekyume". Built with plain HTML &amp; CSS.</p>
+  </footer>
+
+  <!-- ============================================================
+       TINY VANILLA JS — mobile menu toggle only (as allowed).
+       - Toggles the .is-open class on the menu.
+       - Keeps aria-expanded in sync for screen readers.
+       - Closes the menu after a link is tapped.
+       ============================================================ -->
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close the mobile menu when any nav link is clicked
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
